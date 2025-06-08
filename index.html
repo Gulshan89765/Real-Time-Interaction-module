@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-time Polling App</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Real-time Polling App</h1>
+            <p>Create and vote on polls in real-time!</p>
+        </header>
+
+        <div id="notification"></div>
+
+        <main>
+            <section class="create-poll">
+                <h2>Create New Poll</h2>
+                <form id="pollForm">
+                    <div class="form-group">
+                        <label for="question">Poll Question:</label>
+                        <input type="text" id="question" placeholder="Enter your question" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Options:</label>
+                        <div id="options"></div>
+                        <button type="button" id="addOption" class="btn">Add Option</button>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Poll Settings:</label>
+                        <div class="settings">
+                            <div class="setting">
+                                <label for="duration">Duration (minutes):</label>
+                                <input type="number" id="duration" min="0" value="0">
+                                <small>0 = no expiration</small>
+                            </div>
+                            <div class="setting">
+                                <label>
+                                    <input type="checkbox" id="isPrivate">
+                                    Private Poll
+                                </label>
+                            </div>
+                            <div class="setting">
+                                <label>
+                                    <input type="checkbox" id="allowMultipleVotes">
+                                    Allow Multiple Votes
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="button" id="createPoll" class="btn primary">Create Poll</button>
+                </form>
+            </section>
+
+            <section class="polls">
+                <h2>Active Polls</h2>
+                <div id="pollsContainer"></div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Created with ❤️ using Socket.IO</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
